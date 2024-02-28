@@ -1,0 +1,30 @@
+import pandas as pd
+file_name = "bank_account.xlsx"
+file_path = "C:/Users/Desktop/" + file_name   #enter your file path
+
+df = pd.read_excel(file_path)
+
+print(df)
+
+withdrawals = df[df["Type"] == "Withdrawal"].groupby("Month")["Amount"].sum()
+deposits = df[df["Type"] == "Deposit"].groupby("Month")["Amount"].sum()
+
+print("The total withdrawals per month are:")
+print(withdrawals)
+print("The total deposits per month are:")
+print(deposits)
+
+
+
+
+
+
+//////////////////////////////////////////////////////////
+
+#import pandas as pd
+
+#df = pd.read_excel('path/to/your/file.xlsx')
+
+#monthly_summary = df.groupby(df['Month'].dt.month)['Amount'].sum()
+
+#print(monthly_summary)
